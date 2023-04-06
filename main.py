@@ -4,7 +4,7 @@ import json
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/', methods=['POST', 'GET'])
 @app.route('/form_sample', methods=['POST', 'GET'])
 def form_sample():
     if request.method == 'GET':
@@ -106,19 +106,18 @@ def form_sample():
                                     <button type="submit" class="btn btn-primary">Записаться</button>
                                 </form>
                             </div>
-                            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+                            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" 
                             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
                             crossorigin="anonymous"></script>
                           </body>
                         </html>'''
     elif request.method == 'POST':
-        with open("res.json") as res:
-            result = {
-                         request.form['name']: [request.form['email'], request.form['age'], request.form['sex'],
-                                                request.form['time'], request.form['about'], request.form['about2'],
-                                                request.form['file']]
-            }
-            json.dump(result, res)
+        result = {
+                     request.form['name']: [request.form['email'], request.form['age'], request.form['sex'],
+                                            request.form['time'], request.form['about'], request.form['about2'],
+                                            request.form['file']]
+        }
+        json.dump(result, open('res.json', 'w'))
         # print(request.form['email'])
         # print(request.form['name'])
         # print(request.form['age'])
