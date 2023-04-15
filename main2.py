@@ -1,6 +1,6 @@
 from flask import Flask, request, url_for
 import json
-
+from main import form_sample
 app = Flask(__name__)
 
 
@@ -36,21 +36,8 @@ def form_sample():
                           </body>
                         </html>'''
     elif request.method == 'POST':
-        result = {
-                     request.form['name']: [request.form['email'], request.form['age'], request.form['sex'],
-                                            request.form['time'], request.form['about'], request.form['about2'],
-                                            request.form['file']]
-        }
-        json.dump(result, open('res.json', 'w'))
-        # print(request.form['email'])
-        # print(request.form['name'])
-        # print(request.form['age'])
-        # print(request.form['sex'])
-        # print(request.form['time'])
-        # print(request.form['about'])
-        # print(request.form['about2'])
-        # print(request.form['file'])
-        return "Форма отправлена"
+
+
 
 
 if __name__ == '__main__':
