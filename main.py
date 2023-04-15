@@ -126,7 +126,34 @@ def form_sample():
         # print(request.form['about'])
         # print(request.form['about2'])
         # print(request.form['file'])
-        return "Форма отправлена"
+        return f'''<!doctype html>
+                                <html lang="en">
+                                  <head>
+                                    <meta charset="utf-8">
+                                    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                                    <link rel="stylesheet"
+                                    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+                                    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+                                    crossorigin="anonymous">
+                                    <link rel="stylesheet" type="text/css" href="{url_for('static', filename='css/style_2.css')}"/>
+                                    <title>результаты</title>
+                                  </head>
+                                  <body>
+
+                                    <div class="alert alert-primary" role="alert">
+                                    
+                                        <form class="login_form" method="post">
+                                            <h1>Спасибо за Вашу заявку!</h1>
+                                            <h2>Оргагизатры мероприятия свяжутся с Вами в ближайшее время!</h2>
+                                            <img src="/static/img/image.jpg">
+                                        </form>
+                                        
+                                    </div>
+                                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" 
+                                    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+                                    crossorigin="anonymous"></script>
+                                  </body>
+                                </html>'''
 
 
 if __name__ == '__main__':
