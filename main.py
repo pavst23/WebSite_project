@@ -1,6 +1,6 @@
 from flask import Flask, request, url_for
 import json
-
+from data_handler import Handler
 app = Flask(__name__)
 
 
@@ -133,6 +133,7 @@ def form_sample():
         # print(request.form['about'])
         # print(request.form['about2'])
         # print(request.form['file'])
+        Data_handler = Handler()
         return f'''<!doctype html>
                                 <html lang="en">
                                   <head>
