@@ -26,6 +26,7 @@ def form_sample():
                                 <form class="login_form" method="post">
                                     <h1>Регистрация на мероприятие</h1>
                                     <h2>В этом сайте вы сможете зарегистрироваться на мероприятия, которые вам интересны</h2>
+                                    <img src="/static/img/image2.jpg">
                                     <button type="submit" class="btn btn-primary">Пройти регистрацию</button>
                                 </form>
                             </div>
