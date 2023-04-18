@@ -23,12 +23,13 @@ def form_sample():
                           <body>
                             <div class="alert alert-success" role="alert">
                                 <form class="login_form" method="post">
-                                    <h1>Регистрация на мероприятие</h1>
-                                    <h2>В этом сайте вы сможете зарегистрироваться на мероприятия, которые вам интересны</h2>
+                                    <h1>Регистрация на вечеринку</h1>
+                                    <h2>В этом сайте вы сможете зарегистрироваться на вечеринку, которая будет организована в ближайшее время,
+                                    и по результатам опроса будет намечено время и место мероприятия</h2>
                                     <img src="/static/img/image2.jpg">
                                 </form>
                             </div>
-                            <h1>Форма для регистрации на мероприятие</h1>
+                            <h1>Форма для регистрации на вечеринку</h1>
                             <div class="alert alert-danger" role="alert">
                                 <form class="login_form" method="post">
                                     <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Введите адрес почты" name="email">
@@ -49,7 +50,6 @@ def form_sample():
                                           </label>
                                         </div>
                                     </div>
-                                    <input type="event" class="form-control" id="age" placeholder="Введите название интересуемого мероприятия" name="event">
                                     <div class="form-group">
                                         <label for="classSelect">Укажите удобное для вас время</label>
                                         <select class="form-control" id="classSelect" name="time">
@@ -99,6 +99,7 @@ def form_sample():
                                           <option>23:30</option>
                                         </select>
                                      </div>
+                                    <input type="place" class="form-control" id="place" placeholder="Укажите удобное для вас место проведения мероприятяия" name="place">
                                     <div class="form-group">
                                         <label for="about">Немного о себе</label>
                                         <textarea class="form-control" id="about" rows="3" name="about"></textarea>
@@ -120,8 +121,13 @@ def form_sample():
                         </html>'''
     elif request.method == 'POST':
         result = {
-                     request.form['name']: [request.form['email'], request.form['age'], request.form['sex'],
-                                            request.form['time'], request.form['about'], request.form['about2'],
+                     request.form['name']: [request.form['email'],
+                                            request.form['age'],
+                                            request.form['sex'],
+                                            request.form['time'],
+                                            request.form['place'],
+                                            request.form['about'],
+                                            request.form['about2'],
                                             request.form['file']]
         }
         json.dump(result, open('res.json', 'w'))
