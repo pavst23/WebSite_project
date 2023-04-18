@@ -25,15 +25,17 @@ class Handler():
             data_dict['Age'] = [value[1]]
             data_dict['Sex'] = [value[2]]
             data_dict['Time'] = [value[3]]
-            data_dict['About'] = [value[4]]
-            data_dict['About2'] = [value[5]]
-            data_dict['File'] = [value[5]]
+            data_dict['Place'] = [value[4]]
+            data_dict['About'] = [value[5]]
+            data_dict['About2'] = [value[6]]
+            data_dict['File'] = [value[7]]
         self.new_data = pd.DataFrame(data_dict)
 
     def data_append(self):
         self.new_data['Age'] = self.new_data['Age'].astype(object)
         self.all_reg['Age'] = self.all_reg['Age'].astype(object)
         self.result_data = self.all_reg._append(self.new_data, ignore_index=True)
+        # print(self.result_data.head())
 
     def data_update(self):
         self.read_all_reg.update([self.result_data.columns.values.tolist()] + self.result_data.values.tolist())
